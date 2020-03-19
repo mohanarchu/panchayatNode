@@ -1,0 +1,8 @@
+# node modules dir
+node_modules
+
+# package-lock file
+package-lock.json
+
+# uploads
+uploads/lowQlty
