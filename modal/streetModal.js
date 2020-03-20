@@ -8,7 +8,7 @@ const authForm = mongoose.Schema({
     toHouseNumber: { type: Number },
     noOfHouses: { type: Number},
     waterMan: { type: mongoose.Schema.Types.ObjectId , ref : "users" },
-    ward : { type:  mongoose.Schema.Types.ObjectId , ref: 'wards' , required : true},
+    ward : { type:  Number , ref: 'wards' },
 
 },
 { timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' } } );

@@ -18,14 +18,14 @@ process.on('unhandledRejection', error => {
 });
 
 
-const DB  = process.env.DATABASEE;
-mongoose.connect(DB, { 
-  useNewUrlParser: true,
-  useCreateIndex: true,
-  useFindAndModify: false,
-  useUnifiedTopology: true
-  }).then(() => console.log("Connection Successful"))
-    .catch(err => console.log(err));
+
+mongoose.connect(process.env.demo_db, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true, useFindAndModify: false });
+    mongoose.connection.once('open', res => {
+        console.log('Connection Done!');
+    });
+    mongoose.connection.on('error', error => {
+        console.log(('Connection Error!', error));
+    })
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));

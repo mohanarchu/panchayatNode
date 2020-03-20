@@ -19,6 +19,10 @@ exports.create = async (req, res) => {
       },
       { upsert: true }
     );
+
+    if (idCheck !=  null) {
+      throw error
+    }
     return res.status(200).send({
       status: 200,
       error: "",
@@ -93,7 +97,7 @@ exports.byWard = async (req, res) => {
 exports.updateByWard = async (req, res) => {
   try {
     const file = await street.updateMany(
-      { ward: req.params.ID },
+      { ward: req.params.number },
       { $set: { waterMan:  req.params.waterMan } }
     );
     res

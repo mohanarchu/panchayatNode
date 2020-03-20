@@ -71,7 +71,7 @@ exports.delete = async (req, res) => {
 
 exports.viewUser = async (req, res) => {
   try {
-    const data = await users.find({ userMobile: req.params.ID });
+    const data = await users.find( { userMobile: req.params.ID });
     res.status(200).json({ status: 200, error: "", data: data });
   } catch (err) {
     return res.status(400).send({ status: 400, error: err, message: "failed" });
